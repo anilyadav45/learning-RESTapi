@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <h1>QUORA POSTS</h1>
+    <div class="container">
+        <% posts.forEach(function(post) { %>
+            <div class="post">
+                <h3>
+                    <%= post.user %>
+                </h3>
+                <p>
+                    <%= post.desc %>
+                </p>
+            </div>
+        <% }) %>
+    </div>
+</body>
+
+</html>
