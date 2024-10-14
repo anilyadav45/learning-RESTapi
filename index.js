@@ -3,6 +3,9 @@ const app = express();
 const port = 4050;
 const path = require("path");
 
+const { v4: uuidv4 } = require('uuid');
+uuidv4(); // ⇨ '1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed'
+
 app.use(express.urlencoded({ extended: true }));
 
 // Setting view engine for the 'views' folder to use EJS while routing
@@ -14,7 +17,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 
 //making database or array data for just make posts
-let posts = [{ user: "anilydv@45", desc: "This is anil's first post" ,id:"1a" }, { user: "suniydv@77", desc: "This is sky's first post" ,id:"2b"}, { user: "rahul484", desc: "This is rahul's first post" ,id:"3c"}];
+let posts = [{ user: "anilydv@45", desc: "This is anil's first post" ,id:uuidv4() }, { user: "suniydv@77", desc: "This is sky's first post" ,id:uuidv4()}, { user: "rahul484", desc: "This is rahul's first post" ,id:uuidv4()}];
 //here manually we added ids but in database it auto generate ind. ids
 //this is index route - main page
 app.get("/posts", (req, res) => {
@@ -31,8 +34,9 @@ app.post("/posts",(req,res)=>{
     // res.send("post request working!");
     // console.log(req.body);
     //using de-structing and taking input username and content in one object then push it in posts so new post create
+    let id = uuidv4(); //random id generate 
     let {user,desc} = req.body ; 
-    posts.push({user,desc});//pushed one more object so new post create in ejs
+    posts.push({user,desc,id});//pushed one more object so new post create in ejs
     //here after pushed the post there is no posts route coming so let's use redirect 
     res.redirect("http://localhost:4050/posts"); //after all the work this will auto reload posts after new form submission
 })
