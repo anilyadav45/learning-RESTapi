@@ -14,7 +14,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 
 //making database or array data for just make posts
-let posts = [{ user: "anilydv@45", desc: "This is anil's first post" }, { user: "suniydv@77", desc: "This is sky's first post" }, { user: "rahul484", desc: "This is rahul's first post" }];
+let posts = [{ user: "anilydv@45", desc: "This is anil's first post" ,id:"1a" }, { user: "suniydv@77", desc: "This is sky's first post" ,id:"2b"}, { user: "rahul484", desc: "This is rahul's first post" ,id:"3c"}];
+//here manually we added ids but in database it auto generate ind. ids
 //this is index route - main page
 app.get("/posts", (req, res) => {
     // res.send("server is responding well! to port 4050");
@@ -34,6 +35,14 @@ app.post("/posts",(req,res)=>{
     posts.push({user,desc});//pushed one more object so new post create in ejs
     //here after pushed the post there is no posts route coming so let's use redirect 
     res.redirect("http://localhost:4050/posts"); //after all the work this will auto reload posts after new form submission
+})
+//creating routes to access specific post through ids
+app.get("/posts/:id",(req,res)=>{
+    let {id} = req.params;
+    let post = posts.find((p)=> id === p.id);
+    console.log(post);
+    // res.send("id route working ");
+    res.render("indivisual.ejs",{post});
 })
 
 app.listen(port, () => {

@@ -14,15 +14,16 @@
         <% posts.forEach(function(post) { %>
             <div class="post">
                 <h3>
-                    <%= post.user %>
+                    @<%= post.user %>
                 </h3>
-                <p>
+                <h4>
                     <%= post.desc %>
-                </p>
+                </h4>
                 <button id="delete">Delete Post</button>
+              <a href="http://localhost:4050/posts/<%=post.id%>" id="seemore">See in details</a>
             </div>
         <% }) %>
-        <a href="http://localhost:4050/posts/new">Create new post</a>
+        <a href="http://localhost:4050/posts/new" id="create">Create new post</a>
     </div>
 </body>
 
