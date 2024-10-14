@@ -27,11 +27,13 @@ app.get("/posts/new",(req,res)=>{
 }) //but get shows the request to the urls so we use post instead
 
 app.post("/posts",(req,res)=>{
-    res.send("post request working!");
+    // res.send("post request working!");
     // console.log(req.body);
     //using de-structing and taking input username and content in one object then push it in posts so new post create
     let {user,desc} = req.body ; 
     posts.push({user,desc});//pushed one more object so new post create in ejs
+    //here after pushed the post there is no posts route coming so let's use redirect 
+    res.redirect("http://localhost:4050/posts"); //after all the work this will auto reload posts after new form submission
 })
 
 app.listen(port, () => {
