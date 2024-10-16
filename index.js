@@ -48,6 +48,16 @@ app.get("/posts/:id",(req,res)=>{
     // res.send("id route working ");
     res.render("indivisual.ejs",{post});
 })
+//patch route to update post details
+app.patch("/posts/:id",(req,res)=>{
+    let {id}= req.params;
+    let post = posts.find((p)=> id ===p.id); //finding post through id
+    let newContent = req.body.desc;  //the new content we send in body at hobbscotch
+    post.desc = newContent; //the new content assing to previous desc
+    console.log(post.desc);
+    console.log(newContent);
+    res.send("patch or updationwoiking");
+})
 
 app.listen(port, () => {
     console.log(`App is listening on port ${port}`);
