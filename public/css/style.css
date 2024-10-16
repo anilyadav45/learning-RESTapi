@@ -79,3 +79,16 @@ body h1{
     /* text-decoration: none; */
     font-size: 1.3rem;
 }
+.post #edit-desc{
+    width: 50%;
+    height: 10rem;
+}
+.edit-post{
+    height: 25rem;
+}
+#edit-btn{
+    width: 8rem;
+    height: 3rem;
+    position: relative;
+    bottom: 7%;
+}

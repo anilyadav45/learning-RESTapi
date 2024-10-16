@@ -19,7 +19,7 @@
                 <h4>
                     <%= post.desc %>
                 </h4>
-                <button id="delete">Delete Post</button>
+                <a href="http://localhost:4050/posts/<%=post.id%>/edit" id="edit">Edit post</a>
               <a href="http://localhost:4050/posts/<%=post.id%>" id="seemore">See in details</a>
             </div>
         <% }) %>
