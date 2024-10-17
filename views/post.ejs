@@ -21,6 +21,11 @@
                 </h4>
                 <a href="http://localhost:4050/posts/<%=post.id%>/edit" id="edit">Edit post</a>
               <a href="http://localhost:4050/posts/<%=post.id%>" id="seemore">See in details</a>
+              <form action="/posts/<%= post.id  %>?_method=DELETE" method="post" class="delete-form">
+                <!-- CREATED BUTTON INSIDE FORM BECAUSE WE WANT REQUEST AFTER CLICKING BUTTON IT WILL RENDER TO POST/:ID 
+                   -->
+                <button id="del">Delete</button>
+              </form>
             </div>
         <% }) %>
         <a href="http://localhost:4050/posts/new" id="create">Create new post</a>

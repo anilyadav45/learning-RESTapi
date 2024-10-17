@@ -75,6 +75,15 @@ app.patch("/posts/:id", (req, res) => {
     res.redirect("/posts");
 })
 
+//creating DELETE route 
+app.delete("/posts/:id",(req,res)=>{
+    let {id} = req.params; 
+    posts = posts.filter((p)=> id != p.id); //here we're assigning the posts which is not equal to the id which will request for DELETE and the one which matches will not assign to posts so it will not visible we can call it will be removed
+    //we only filtered the post which is not equal to requested id 
+    //requested id post will be ignored so we can imagine it as deleted
+    res.redirect("/posts"); //after ignored this post and assigned or filtered it will redirect to main page
+    
+})
 
 app.listen(port, () => {
     console.log(`App is listening on port ${port}`);

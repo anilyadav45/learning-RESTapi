@@ -13,8 +13,8 @@ body{
 }
 .post{
     width: 90%;
-    height: 12rem;
-    background-color: #bb5b5b;
+    height: 15rem;
+    background-color: #352020ad;
     color: #fff;
     /* border: 1px solid black; */
     font-size: 1rem;
@@ -25,6 +25,9 @@ body{
     flex-direction: column;
     padding-left: 8px;
     padding-bottom: 12px;
+}
+.post a{
+    color: #fff;
 }
 body h1{
     color:rgb(145, 2, 2);
@@ -91,4 +94,16 @@ body h1{
     height: 3rem;
     position: relative;
     bottom: 7%;
+}
+.delete-form #del{
+    width: 6rem;
+    height: 2rem;
+    font-size: 1rem;
+    border:1px solid green;
+    background-color: red;
+    color: #ffff;
+    border-radius: 4px;
+    position: relative;
+    top: 10px;
+    cursor: pointer;
 }
