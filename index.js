@@ -75,7 +75,7 @@ app.patch("/posts/:id", (req, res) => {
     res.redirect("/posts");
 })
 
-//creating DELETE route 
+// DELETE route 
 app.delete("/posts/:id",(req,res)=>{
     let {id} = req.params; 
     posts = posts.filter((p)=> id != p.id); //here we're assigning the posts which is not equal to the id which will request for DELETE and the one which matches will not assign to posts so it will not visible we can call it will be removed
